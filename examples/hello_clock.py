@@ -2,7 +2,6 @@ import asyncio
 
 
 async def print_every_second():
-    "Print seconds"
     while True:
         for i in range(60):
             print(i, 's')
@@ -15,9 +14,12 @@ async def print_every_minute():
         print(i, 'minute')
 
 
+async def main():
+    coro_second = print_every_second()
+    coro_minute = print_every_minute()
+    await asyncio.gather(coro_second, coro_minute)
+
+
 loop = asyncio.get_event_loop()
-loop.run_until_complete(
-    asyncio.gather(print_every_second(),
-                   print_every_minute())
-)
+loop.run_until_complete(main())
 loop.close()

@@ -13,7 +13,5 @@ async def steps(x):
 
 
 loop = asyncio.get_event_loop()
-coro = steps(5)
-loop.run_until_complete(coro)
+loop.run_until_complete(steps(5))
 loop.close()
-

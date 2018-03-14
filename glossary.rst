@@ -21,10 +21,11 @@ Glossary
 
     future
         It's like a mailbox where you can subscribe to receive a result when it
-        will be done. More details in `official documentation
-        <https://docs.python.org/3/library/asyncio-task.html#future>`_
+        will be done. See the `Future section`_ of the official documentation.
 
     task
         It represents the execution of a coroutine and take care the result in a
-        future. More details in `official documentation
-        <https://docs.python.org/3/library/asyncio-task.html#task>`_
+        future. See the `Task section`_ of the official documentation.
+
+.. _Future section: https://docs.python.org/3/library/asyncio-task.html#future
+.. _Task section: https://docs.python.org/3/library/asyncio-task.html#task

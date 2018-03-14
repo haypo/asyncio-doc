@@ -1,16 +1,13 @@
-"""Synchronous client to retrieve web pages.
-"""
+"""Synchronous client to retrieve web pages."""
 
-
-from urllib.request import urlopen
 import time
+from urllib.request import urlopen
 
 ENCODING = 'ISO-8859-1'
 
 
 def get_encoding(http_response):
-    """Find out encoding.
-    """
+    """Find out encoding."""
     content_type = http_response.getheader('Content-type')
     for entry in content_type.split(';'):
         if entry.strip().startswith('charset'):
@@ -26,12 +23,11 @@ def get_page(host, port, wait=0):
     full_url = '{}:{}/{}'.format(host, port, wait)
     with urlopen(full_url) as http_response:
         html = http_response.read().decode(get_encoding(http_response))
-    return html
+    return html.strip('\n')
 
 
 def get_multiple_pages(host, port, waits, show_time=True):
-    """Get multiple pages.
-    """
+    """Get multiple pages."""
     start = time.perf_counter()
     pages = [get_page(host, port, wait) for wait in waits]
     duration = time.perf_counter() - start
@@ -42,14 +38,13 @@ def get_multiple_pages(host, port, waits, show_time=True):
     return pages
 
 
+def main():
+    """Test it."""
+    pages = get_multiple_pages(
+        host='http://localhost', port='8000', waits=[1, 5, 3, 2])
+    for page in pages:
+        print(page)
+
+
 if __name__ == '__main__':
-
-    def main():
-        """Test it.
-        """
-        pages = get_multiple_pages(host='http://localhost', port='8000',
-                                   waits=[1, 5, 3, 2])
-        for page in pages:
-            print(page)
-
     main()

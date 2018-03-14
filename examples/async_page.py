@@ -1,7 +1,4 @@
-# file: async_page.py
-
-"""Get a "web page" asynchronously.
-"""
+"""Get a web page asynchronously."""
 
 import asyncio
 
@@ -9,8 +6,7 @@ ENCODING = 'ISO-8859-1'
 
 
 def get_encoding(header):
-    """Find out encoding.
-    """
+    """Find out encoding."""
     for line in header:
         if line.lstrip().startswith('Content-type'):
             for entry in line.split(';'):
@@ -20,8 +16,7 @@ def get_encoding(header):
 
 
 async def get_page(host, port, wait=0):
-    """Get a "web page" asynchronously.
-    """
+    """Get a web page asynchronously."""
     reader, writer = await asyncio.open_connection(host, port)
     writer.write(b'\r\n'.join([
         'GET /{} HTTP/1.0'.format(wait).encode(ENCODING),

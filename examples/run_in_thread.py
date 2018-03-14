@@ -2,7 +2,7 @@ import asyncio
 
 
 def compute_pi(digits):
-    # implementation
+    # CPU-intensive computation
     return 3.14
 
 

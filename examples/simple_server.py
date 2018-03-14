@@ -1,7 +1,4 @@
-# file: simple_server.py
-
-"""Simple HTTP server with GET that waits for given seconds.
-"""
+"""Simple HTTP server with GET that waits for given seconds."""
 
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
@@ -12,18 +9,15 @@ ENCODING = 'utf-8'
 
 
 class ThreadingHTTPServer(ThreadingMixIn, HTTPServer):
-    """Simple multi-threaded HTTP server.
-    """
+    """Simple multi-threaded HTTP server."""
     pass
 
 
 class MyRequestHandler(BaseHTTPRequestHandler):
-    """Very simple request handler. Only supports GET.
-    """
+    """Very simple request handler. Only supports GET."""
 
     def do_GET(self):  # pylint: disable=invalid-name
-        """Respond after seconds given in path.
-        """
+        """Respond after seconds given in path."""
         try:
             seconds = float(self.path[1:])
         except ValueError:
@@ -43,8 +37,7 @@ class MyRequestHandler(BaseHTTPRequestHandler):
 def run(server_class=ThreadingHTTPServer,
         handler_class=MyRequestHandler,
         port=8000):
-    """Run the simple server on given port.
-    """
+    """Run the simple server on given port."""
     server_address = ('', port)
     httpd = server_class(server_address, handler_class)
     print('Serving from port {} ...'.format(port))

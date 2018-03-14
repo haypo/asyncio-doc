@@ -9,13 +9,16 @@ async def echo(msg):
         stdin=asyncio.subprocess.PIPE,
         # stdout must a pipe to be accessible as process.stdout
         stdout=asyncio.subprocess.PIPE)
+
     # Write message
     print('Writing {!r} ...'.format(msg))
     process.stdin.write(msg.encode() + b'\n')
+
     # Read reply
     data = await process.stdout.readline()
     reply = data.decode().strip()
     print('Received {!r}'.format(reply))
+
     # Stop the subprocess
     process.terminate()
     code = await process.wait()

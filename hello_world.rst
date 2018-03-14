@@ -47,9 +47,12 @@ all scheduled :term:`tasks <task>` could execute, which results in a warning.
 
 .. literalinclude:: examples/loop_stop.py
 
-Warning::
+Output:
 
+.. sourcecode:: console
+
+    second hello
+    first hello
     Task was destroyed but it is pending!
     task: <Task pending coro=<say() done, defined at examples/loop_stop.py:3>
     wait_for=<Future pending cb=[Task._wakeup()]>>
-
