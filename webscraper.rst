@@ -21,8 +21,6 @@ This is a very simple web server. (See below for the code.)
 Its only purpose is to wait for a given amount of time.
 Test it by running it from the command line::
 
-.. highlight:: bash
-
     $ python simple_server.py
 
 It will answer like this::
@@ -126,8 +124,6 @@ Taking two time stamps a different points in time and calculating their
 difference provides the elapsed run time.
 
 Finally, we can run our client::
-
-.. highlight:: bash
 
     $ python synchronous_client.py
 
@@ -258,8 +254,6 @@ This means, we wait until each pages has been retrieved before asking for
 the next.
 Let's run it from the command-line to see what happens::
 
-.. highlight:: bash
-
     $ async_client_blocking.py
     It took 11.06 seconds for a total waiting time of 11.00.
     Waited for 1.00 seconds.
@@ -326,8 +320,6 @@ So, for a list with 100 tasks it would mean:
 
 Let's see if we got any faster::
 
-.. highlight:: bash
-
     $ async_client_nonblocking.py
     It took 5.08 seconds for a total waiting time of 11.00.
     Waited for 1.00 seconds.
@@ -366,8 +358,6 @@ High-Level Approach with ``aiohttp``
 The library aiohttp_ allows to write HTTP client and server applications,
 using a high-level approach.
 Install with::
-
-.. highlight:: bash
 
     $ pip install aiohttp
 
@@ -418,8 +408,6 @@ The only difference is the opened client session and handing over this session
 to ``fetch_page()`` as the first argument.
 
 Finally, we run this program::
-
-.. highlight:: bash
 
     $ python aiohttp_client.py
     It took 5.04 seconds for a total waiting time of 11.00.
