@@ -66,7 +66,8 @@ If you don't use conda (see above), create a virtual environment::
     Depending on your platform, the Python 3 interpreter could be invoked by
     ``python`` instead. This is the case for conda on Windows for example.
 
-Install ``aiohttp`` in the virtual environment::
+Activate the virtual environment and install ``aiohttp`` inside:
 
-    ./venv/bin/python -m pip install -U aiohttp
+    source venv/bin/activate
+    pip install -U aiohttp
 
